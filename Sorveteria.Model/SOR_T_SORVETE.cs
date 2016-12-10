@@ -6,7 +6,7 @@ namespace Sorveteria.Model
          /// <summary>
          /// 
          /// </summary>
-         public long IDSORVETE { get; set; }
+         public decimal IDSORVETE { get; set; }
 
          /// <summary>
          /// 
@@ -21,12 +21,12 @@ namespace Sorveteria.Model
          /// <summary>
          /// 
          /// </summary>
-         public long PRECO { get; set; }
+         public double PRECO { get; set; }
 
          /// <summary>
          /// 
          /// </summary>
-         public long IDFORNECEDOR { get; set; }
+         public decimal IDFORNECEDOR { get; set; }
 
     }
 }

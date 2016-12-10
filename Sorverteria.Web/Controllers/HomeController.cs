@@ -1,15 +1,17 @@
 ﻿using System.Collections.Generic;
 using System.Web.Mvc;
+using Sorveteria.Dao;
 using Sorveteria.Model;
 
 namespace Sorverteria.Web.Controllers
 {
     public class HomeController : Controller
     {
+        public SorveteDao SorveteDao => new SorveteDao();
+
         public ActionResult Index()
         {
-            var listaSorvetes = new List<SOR_T_SORVETE>();
-         
+            var listaSorvetes = SorveteDao.GetAll().Content;
 
             return View(listaSorvetes);
         }

@@ -1,4 +1,6 @@
+using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Net;
 using Sorveteria.Model;
 
@@ -58,7 +60,7 @@ namespace Sorveteria.Dao
         {
             var result = new RequestMessage<List<SOR_T_SORVETE>>
             {
-                Procedure = $"{PackageName}.{Procedures.SOR_SP_S_SORVETE_ID}",
+                Procedure = $"{PackageName}.{Procedures.SOR_SP_S_SORVETE}",
                 Content = new List<SOR_T_SORVETE>()
             };
 
@@ -71,17 +73,17 @@ namespace Sorveteria.Dao
                 {
                     result.Content.Add(new SOR_T_SORVETE
                     {
-                        IDSORVETE = "IDSORVETE".GetValueOrDefault<long>(reader),
+                        IDSORVETE = "IDSORVETE".GetValueOrDefault<decimal>(reader),
                         NOME = "NOME".GetValueOrDefault<string>(reader),
                         DESCRICAO = "DESCRICAO".GetValueOrDefault<string>(reader),
-                        PRECO = "PRECO".GetValueOrDefault<long>(reader),
-                        IDFORNECEDOR = "IDFORNECEDOR".GetValueOrDefault<long>(reader),
+                        PRECO = "PRECO".GetValueOrDefault<double>(reader),
+                        IDFORNECEDOR = "IDFORNECEDOR".GetValueOrDefault<decimal>(reader),
                     });
-                    return result;
                 }
             }
 
-            result.StatusCode = HttpStatusCode.NoContent;
+            if (!result.Content.Any())
+                result.StatusCode = HttpStatusCode.NoContent;
 
             return result;
         }
