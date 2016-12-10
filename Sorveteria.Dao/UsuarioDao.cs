@@ -38,15 +38,13 @@ namespace Sorveteria.Dao
                     {
                         IDUSUARIO = "IDUSUARIO".GetValueOrDefault<long>(reader),
                         EMAIL = "EMAIL".GetValueOrDefault<string>(reader),
-                        SENHA = "SENHA".GetValueOrDefault<string>(reader),
                     };
                     return result;
                 }
             }
 
             result.Message = $"Senha inválida!.";
-            result.StatusCode = HttpStatusCode.NoContent;
-            result.Content = new SOR_T_USUARIO();
+            result.StatusCode = HttpStatusCode.BadRequest;
 
             return result;
         }

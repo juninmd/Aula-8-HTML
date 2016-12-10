@@ -35,9 +35,17 @@ namespace Sorveteria.Dao
 
         #region ••• Metodos •••
 
-        protected void BeginNewStatement(string comando)
+        protected void BeginNewQueryStatement(string comando)
         {
             _command.CommandType = CommandType.Text;
+            _command.CommandText = comando;
+            _command.Parameters.Clear();
+
+        }
+
+        protected void BeginNewStatement(string comando)
+        {
+            _command.CommandType = CommandType.StoredProcedure;
             _command.CommandText = comando;
             _command.Parameters.Clear();
 

@@ -125,8 +125,6 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Models\Sorvete.cs" />
-    <Compile Include="Models\User.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -177,6 +175,16 @@
     <Content Include="packages.config" />
     <None Include="Project_Readme.html" />
     <Content Include="Scripts\jquery-1.10.2.min.map" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Sorveteria.Dao\Sorveteria.Dao.csproj">
+      <Project>{BE78FD6D-FB92-4D47-85BB-3B1F9A336920}</Project>
+      <Name>Sorveteria.Dao</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Sorveteria.Model\Sorveteria.Model.csproj">
+      <Project>{CE7E9949-9CDE-4936-8E0E-8ED07D795CF9}</Project>
+      <Name>Sorveteria.Model</Name>
+    </ProjectReference>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

@@ -1,14 +1,13 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
-using System.Web.Mvc;
-using Sorverteria.Web.Models;
+﻿using System.Web.Mvc;
+using Sorveteria.Dao;
+using Sorveteria.Model;
 
 namespace Sorverteria.Web.Controllers
 {
     public class LoginController : Controller
     {
+        public UsuarioDao UsuarioDao => new UsuarioDao();
+
         [HttpGet]
         public ActionResult Index()
         {
@@ -16,14 +15,16 @@ namespace Sorverteria.Web.Controllers
         }
 
         [HttpPost]
-        public ActionResult Index(User user)
+        public ActionResult Index(SOR_T_USUARIO user)
         {
-            if (user.Senha == "123")
+
+            if (UsuarioDao.GetById(user.EMAIL, user.SENHA).IsError)
             {
-                return RedirectToAction("Index", "Home");
+                ModelState.AddModelError("senha", "senha invalida");
+                return View();
             }
-            ModelState.AddModelError("senha", "senha invalida");
-            return View();
+            return RedirectToAction("Index", "Home");
+
         }
     }
 }

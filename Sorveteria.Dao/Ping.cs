@@ -1,8 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using Sorveteria.Model;
 
 namespace Sorveteria.Dao
@@ -11,7 +7,7 @@ namespace Sorveteria.Dao
     {
         public RequestMessage<DateTime> TemosConexao()
         {
-            BeginNewStatement("SELECT SYSDATE DATA FROM DUAL");
+            BeginNewQueryStatement("SELECT SYSDATE DATA FROM DUAL");
             OpenConnection();
 
             using (var r = ExecuteReader())
