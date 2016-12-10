@@ -1,3 +1,9 @@
 /packages
 /Sorverteria.Web/bin
 /Sorverteria.Web/obj
+/Sorveteria.Console/obj
+/Sorveteria.Console/bin
+/Sorveteria.Model/obj
+/Sorveteria.Model/bin
+/Sorveteria.Dao/obj
+/Sorveteria.Dao/bin
