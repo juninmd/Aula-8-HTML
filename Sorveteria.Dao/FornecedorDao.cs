@@ -95,7 +95,6 @@ namespace Sorveteria.Dao
             BeginNewStatement(PackageName, Procedures.SOR_SP_I_FORNECEDOR);
 
             AddResult();
-            AddParameter("IDFORNECEDOR", entidade.IDFORNECEDOR);
             AddParameter("NOME", entidade.NOME);
             AddParameter("CNPJ", entidade.CNPJ);
             AddParameter("ENDERECO", entidade.ENDERECO);

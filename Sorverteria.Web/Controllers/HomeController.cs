@@ -16,18 +16,24 @@ namespace Sorverteria.Web.Controllers
             return View(listaSorvetes);
         }
 
-        public ActionResult About()
+        [HttpGet]
+        public ActionResult Fornecedor()
         {
-            ViewBag.Message = "Your application description page.";
-
-            return View();
+            return View(new SOR_T_FORNECEDOR());
         }
 
-        public ActionResult Contact()
+        [HttpPost]
+        public ActionResult Fornecedor(SOR_T_FORNECEDOR fornecedor)
         {
-            ViewBag.Message = "Your contact page.";
+            var x = new FornecedorDao().Add(fornecedor, true);
+            if (x.IsError)
+            {
+                ModelState.AddModelError("erro", x.Message);
+                return View(fornecedor);
+            }
+            return View(new SOR_T_FORNECEDOR());
 
-            return View();
         }
+
     }
 }

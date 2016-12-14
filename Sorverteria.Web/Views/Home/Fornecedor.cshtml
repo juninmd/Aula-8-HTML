@@ -1,0 +1,30 @@
+﻿@model Sorveteria.Model.SOR_T_FORNECEDOR
+
+<form action="@Url.Action("Fornecedor")" method="POST">
+    <div class="form-group">
+        <label>Nome</label>
+        <input type="text" name="fornecedor.NOME" class="form-control" placeholder="NOME" value="@Model.NOME">
+    </div>
+    <div class="form-group">
+        <label>CNPJ</label>
+        <input type="text" name="fornecedor.CNPJ" class="form-control" placeholder="CNPJ" value="@Model.CNPJ">
+    </div>
+    <div class="form-group">
+        <label>Endereço</label>
+        <input type="text" name="fornecedor.ENDERECO" class="form-control" placeholder="ENDEREÇO" value="@Model.ENDERECO">
+    </div>
+    <div class="form-group">
+        <label>Telefone</label>
+        <input type="text" name="fornecedor.TELEFONE" class="form-control" placeholder="TELEFONE" value="@Model.TELEFONE">
+    </div>
+    <div class="btn-group">
+        <button type="submit" class="btn btn-primary">Enviar</button>
+    </div>
+
+    @if (ViewData.ModelState["erro"]?.Errors != null)
+    {
+        <div class="alert alert-danger">
+            <strong>@(ViewData.ModelState["erro"].Errors[0].ErrorMessage)</strong>
+        </div>
+    }
+</form>
