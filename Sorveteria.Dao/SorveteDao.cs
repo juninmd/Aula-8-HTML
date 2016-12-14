@@ -44,6 +44,7 @@ namespace Sorveteria.Dao
                         DESCRICAO = "DESCRICAO".GetValueOrDefault<string>(reader),
                         PRECO = "PRECO".GetValueOrDefault<long>(reader),
                         IDFORNECEDOR = "IDFORNECEDOR".GetValueOrDefault<long>(reader),
+                        URLFOTO = "URLFOTO".GetValueOrDefault<string>(reader),
                     };
                     return result;
                 }
@@ -78,6 +79,7 @@ namespace Sorveteria.Dao
                         DESCRICAO = "DESCRICAO".GetValueOrDefault<string>(reader),
                         PRECO = "PRECO".GetValueOrDefault<double>(reader),
                         IDFORNECEDOR = "IDFORNECEDOR".GetValueOrDefault<decimal>(reader),
+                        URLFOTO = "URLFOTO".GetValueOrDefault<string>(reader),
                     });
                 }
             }
